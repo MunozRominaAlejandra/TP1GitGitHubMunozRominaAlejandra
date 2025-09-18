@@ -15,6 +15,7 @@ public void draw(){
   background(0);
   nave.display();
   nave.mover();
+  nave.disparar();
   for(int i=0; i< meteorito.size(); i++){
     Meteorito m = meteorito.get(i);
     m.display();
@@ -33,10 +34,13 @@ public void keyPressed(){
   if(key == 'd' || key == 'D'){
     nave.setDireccion(2);
   }
+  if(key == ' '){
+    nave.setDireccion(3);
+  }
 }
 
 public void keyReleased(){
-  if(key == 'd' || key == 'D' || key == 'a' || key == 'A'){
+  if(key == 'd' || key == 'D' || key == 'a' || key == 'A' || key == ' '){
     nave.setDireccion(0);
   }
 }

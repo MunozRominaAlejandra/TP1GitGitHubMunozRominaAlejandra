@@ -4,8 +4,15 @@ class Bala extends GameObject{
   }
   
   public void display(){
+    imageMode(CENTER);
+    image(img, posicion.x, posicion.y, 20, 20);
   }
   
   public void mover(){
+    posicion.y -= (velocidad * Time.getDeltaTime(frameRate));
+  }
+  
+  public float getPosicionY(){
+    return this.posicion.y;
   }
 }

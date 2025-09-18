@@ -1,14 +1,18 @@
 class Nave extends GameObject{
   public int direccion;
-  
+  public ArrayList<Bala> bala;  
   public Nave(PVector posicion, float velocidad, PImage img){
     super(posicion, velocidad, img);
     direccion= 0;
+    bala= new ArrayList<Bala>();
   }
   
   public void display(){
     imageMode(CENTER);
     image(img, posicion.x, posicion.y, 90, 90);
+    if(direccion == 3){
+      bala.add(new Bala(new PVector(this.posicion.x, this.posicion.y), 300, loadImage("bala.png")));
+    }
   }
   
   public void mover(){
@@ -28,7 +32,15 @@ class Nave extends GameObject{
     }
   }
   
-  public void disparar(Bala bala){
+  public void disparar(){
+    for(int i=0; i< bala.size(); i++){
+      Bala b = bala.get(i);
+      b.display();
+      b.mover();
+      if(b.getPosicionY() < 0-45){
+        bala.remove(i);
+      }
+    }
   }
   
   public void setDireccion(int direccion) {
