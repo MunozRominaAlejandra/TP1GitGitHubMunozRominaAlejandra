@@ -12,7 +12,7 @@ class Bala extends GameObject{
     posicion.y -= (velocidad * Time.getDeltaTime(frameRate));
   }
   
-  public float getPosicionY(){
-    return this.posicion.y;
+  public PVector getPosicion(){
+    return this.posicion;
   }
 }

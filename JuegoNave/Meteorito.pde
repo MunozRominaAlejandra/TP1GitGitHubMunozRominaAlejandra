@@ -14,7 +14,7 @@ class Meteorito extends GameObject{
     posicion.y += (velocidad * Time.getDeltaTime(frameRate));
   }
   
-  public float getPosicionY(){
-    return posicion.y;
+  public PVector getPosicion(){
+    return this.posicion;
   }
 }

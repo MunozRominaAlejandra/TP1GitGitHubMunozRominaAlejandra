@@ -1,5 +1,6 @@
 private Nave nave;
 private ArrayList<Meteorito> meteorito;
+public ArrayList<Bala> bala;
 
 public void setup(){
   size(850, 650);
@@ -9,20 +10,24 @@ public void setup(){
   meteorito.add(new Meteorito(new PVector(random(0, width), -100), random(100, 300), loadImage("meteorito.png")));
   meteorito.add(new Meteorito(new PVector(random(0, width), -100), random(100, 300), loadImage("meteorito.png")));
   meteorito.add(new Meteorito(new PVector(random(0, width), -100), random(100, 300), loadImage("meteorito.png")));
+  bala= new ArrayList<Bala>();
 }
 
 public void draw(){
   background(0);
   nave.display();
   nave.mover();
-  nave.disparar();
+  nave.disparar(bala);
   for(int i=0; i< meteorito.size(); i++){
     Meteorito m = meteorito.get(i);
     m.display();
     m.mover();
-    if(m.getPosicionY() > height+100){
+    if(m.getPosicion().y > height+100 || Collider.isCollision1(bala,m)){
       meteorito.remove(i);
       meteorito.add(new Meteorito(new PVector(random(0, width), -100), random(100, 300), loadImage("meteorito.png")));
+    }
+    if(Collider.isCollision2(meteorito, nave)){
+      setup();
     }
   }
 }
