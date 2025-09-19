@@ -10,7 +10,6 @@ public void setup(){
   meteorito.add(new Meteorito(new PVector(random(0, width), -100), random(100, 300), loadImage("meteorito.png")));
   meteorito.add(new Meteorito(new PVector(random(0, width), -100), random(100, 300), loadImage("meteorito.png")));
   meteorito.add(new Meteorito(new PVector(random(0, width), -100), random(100, 300), loadImage("meteorito.png")));
-  meteorito.add(new Meteorito(new PVector(random(0, width), -100), random(100, 300), loadImage("Meteorito.jpg")));
   bala= new ArrayList<Bala>();
 }
 
